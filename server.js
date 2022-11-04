@@ -20,6 +20,7 @@ mongoose.connect(mongouri, {
 })
     .catch((err) => { console.log(err) });
 
+
 app.get('/', (req, res) => {
     res.send('yes got it now');
 })
