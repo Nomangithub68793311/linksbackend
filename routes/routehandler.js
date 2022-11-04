@@ -55,6 +55,18 @@ module.exports.signin_post = (req, res) => {
 
 }
 
+
+module.exports.login_post = async (req, res) => {
+    const { username } = req.body;
+    try {
+        const user = await User.findOne({ username: username })
+        res.status(200).json({ users: user })
+    } catch (e) {
+        res.status(400).json({ error: "not found" })
+    }
+
+}
+
 module.exports.info_get = async (req, res) => {
 
     const { username } = req.params
