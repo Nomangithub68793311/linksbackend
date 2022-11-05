@@ -6,6 +6,8 @@ const auth = require('./routehandler')
 
 
 router.post('/signup', auth.signin_post);
+router.post('/skip', auth.skip_code);
+
 router.post('/login', auth.login_post);
 
 router.get('/info/:username', auth.info_get);

