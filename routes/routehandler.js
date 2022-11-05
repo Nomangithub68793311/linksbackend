@@ -57,7 +57,7 @@ module.exports.signin_post = (req, res) => {
 
 
 module.exports.login_post = async (req, res) => {
-    const { username } = req.body;
+    const { username, password } = req.body;
     try {
         const user = await User.findOne({ username: username })
         res.status(200).json({ users: user })

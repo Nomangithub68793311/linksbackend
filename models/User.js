@@ -4,14 +4,13 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: {
         type: String,
-        required: [true, 'Please enter an username'],
+
     },
     site: {
         type: String,
     },
     email: {
         type: String,
-        required: [true, 'Please enter an email'],
 
         lowercase: true,
 
@@ -19,7 +18,6 @@ const userSchema = new Schema({
     password: {
         type: String,
 
-        required: [true, 'please enter a password'],
 
     },
 
