@@ -60,7 +60,7 @@ module.exports.login_post = async (req, res) => {
     const { username, password } = req.body;
     try {
         const user = await User.findOne({ username: username })
-        res.status(200).json({ users: user })
+        res.status(200).json({ username: user.username })
     } catch (e) {
         res.status(400).json({ error: "not found" })
     }
