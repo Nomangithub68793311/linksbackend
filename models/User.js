@@ -20,6 +20,9 @@ const userSchema = new Schema({
 
 
     },
+    skipcode: {
+        type: String,
+    }
 
 
 

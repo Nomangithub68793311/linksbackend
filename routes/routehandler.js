@@ -40,12 +40,13 @@ const Info = require('../models/Info')
 
 
 module.exports.signin_post = (req, res) => {
-    const { email, password, username, site } = req.body;
+    const { email, password, username, site, skipcode } = req.body;
     const user = new User({
         email,
         password,
         username,
-        site
+        site,
+        skipcode
 
     })
     user.save()
